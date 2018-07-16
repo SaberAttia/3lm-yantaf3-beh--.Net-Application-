@@ -1,0 +1,51 @@
+﻿@model YontafaeOBih.WebUI.Models.Content
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>تفاصيل المحتوى</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContentTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContentTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContentDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContentDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContentImage)
+        </dt>
+
+        <dd>
+            <img src="~/Uploads/@Html.DisplayFor(model => model.ContentImage)"
+                 class="thumbnail" style="width:128px; height:128px" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("التقدم إلى هذا المحتوى", "Apply", new { id = Model.Id }, new {@class = "btn btn-success"}) |
+    @Html.ActionLink("العودة إلى الصفحة الرئيسية", "Index", new { @class = "btn btn-default" })
+</p>

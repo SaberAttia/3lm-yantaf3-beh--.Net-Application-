@@ -1,0 +1,53 @@
+﻿@model IEnumerable<YontafaeOBih.WebUI.Models.Content>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>قائمة المحتويات</h2>
+
+<p>
+    @Html.ActionLink("إضافة محتوى جديد", "Create")
+</p>
+<table class="table table-stripped table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContentTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContentDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContentImage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContentTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContentDescription)
+        </td>
+        <td>
+            <img src="~/Uploads/@Html.DisplayFor(model => item.ContentImage)"
+                 class="thumbnail" style="width:48px; height:48px" />
+        </td>
+        <td>
+            @Html.ActionLink("تعديل", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("تفاصيل", "Details", new { id=item.Id }) |
+            @Html.ActionLink("حذف", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

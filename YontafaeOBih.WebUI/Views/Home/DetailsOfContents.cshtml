@@ -1,0 +1,44 @@
+﻿@model YontafaeOBih.WebUI.Models.ApplyForThisContent
+
+@{
+    ViewBag.Title = "DetailsOfContents";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>DetailsOfContents</h2>
+
+<div>
+    <h4>ApplyForThisContent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.content.ContentTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.content.ContentTitle)
+        </dd>
+
+
+        <dt>
+            نص الرسالة
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+        <dt>
+            تاريخ الإرسال
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplyDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("تعديل", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("العودة إالى قائمة الوظائف", "GetContentsByUser")
+</p>
