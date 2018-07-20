@@ -168,7 +168,7 @@ namespace WebApplication1.Controllers
         public ActionResult Contact(ContactModel contact)
         {
             var mail = new MailMessage();
-            var loginInfo = new NetworkCredential("saber100111@gmail.com", "sab55538");
+            var loginInfo = new NetworkCredential("saber100111@gmail.com", "00000000");
             mail.From = new MailAddress(contact.Email);
             mail.To.Add(new MailAddress("saber100111@gmail.com"));
             mail.Subject = contact.Subject;
